@@ -1,0 +1,27 @@
+name: Copying documentation to eDocs
+on:
+  push:
+    branches:
+      - edocs-test
+jobs:
+  copy-documents-to-edocs-repo:
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node14.17.0-chrome91-ff89
+    steps:
+        - uses: actions/checkout@v2
+          with:
+            token: ${{ secrets.SUPPORT_TOKEN }}
+        - name: Install dependencies...
+          run: npm install
+        - name: Let's see what it is in there - part 1....
+          run:  ls -li
+        - name: cloning edocs Documentation repo...
+          uses: actions/checkout@v2
+          with:
+                repository: empathyco/docs-empathy-documentation
+                path: edocs-documentation
+                token: ${{ secrets.SUPPORT_TOKEN }}
+        - name: Let's see what it is in there - part 2...
+          run: |
+                cd edocs-documentation
+                ls -li
