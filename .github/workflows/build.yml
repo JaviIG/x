@@ -1,11 +1,17 @@
 name: Check branch is releasable
-on: [push, pull_request]
+on: [ push, pull_request ]
 jobs:
   build:
     runs-on: ubuntu-latest
     container: cypress/browsers:node14.17.0-chrome91-ff89
     steps:
       - uses: actions/checkout@v2
+      - name: Cache multiple paths
+        uses: actions/cache@v2
+        with:
+          path: |
+            **/node_modules
+          key: ${{ hashFiles('**/package-lock.json') }}
       - name: Install lerna and all packages
         run: npm ci
       - name: Run linter in all packages
