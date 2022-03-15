@@ -3,6 +3,7 @@ const webpackConfig = require('@vue/cli-service/webpack.config.js');
 const esbuild = require('@bahmutov/cypress-esbuild-preprocessor');
 const createFeaturePlugin = require('cypress-cucumber-preprocessor/lib/esbuildPlugin');
 const { filelocPlugin } = require('esbuild-plugin-fileloc');
+const path = require('path');
 
 module.exports = (on, config) => {
   on('dev-server:start', options =>
@@ -11,12 +12,11 @@ module.exports = (on, config) => {
       webpackConfig
     })
   );
-  console.log('HELLO', require.resolve('process/browser'), require.resolve('path-browserify'));
   on(
     'file:preprocessor',
     esbuild({
       platform: 'browser',
-      inject: ['./process.polyfill.js'],
+      inject: [path.resolve(__dirname, 'process.polyfill.js')],
       define: {
         global: 'window'
       },
