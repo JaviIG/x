@@ -27,7 +27,6 @@
   "module": "./core/index.js",
   "types": "./core/index.d.ts",
   "sideEffects": [
-    "./tests/**/*",
     "**/*.scss",
     "**/*.scss.js",
     "**/*.css",
@@ -77,6 +76,9 @@
     "vuex": "^3.0.0"
   },
   "devDependencies": {
+    "esbuild": "~0.14.25",
+    "esbuild-plugin-fileloc": "~0.0.6",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.1.2",
     "@cucumber/cucumber": "~7.0.0-rc.0",
     "@cypress/browserify-preprocessor": "~3.0.1",
     "@cypress/vue": "~2.2.3",
@@ -98,7 +100,7 @@
     "@vue/vue2-jest": "~27.0.0-alpha.3",
     "autoprefixer": "~9.7.4",
     "cypress": "~8.4.0",
-    "cypress-cucumber-preprocessor": "~4.0.0",
+    "cypress-cucumber-preprocessor": "file:../cypress-cucumber-preprocessor/cypress-cucumber-preprocessor-0.0.0-development.tgz",
     "cypress-plugin-tab": "~1.0.5",
     "glob": "~7.1.6",
     "jest": "~27.3.1",
