@@ -69,7 +69,7 @@
     "reflect-metadata": "~0.1.13",
     "rxjs": "~7.4.0",
     "tslib": "~2.3.0",
-    "vue": "^2.6.0",
+    "vue": "^3.2.34",
     "vue-class-component": "~7.1.0",
     "vue-global-events": "~1.2.1",
     "vue-property-decorator": "~8.3.0",
