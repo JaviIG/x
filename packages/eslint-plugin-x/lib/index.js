@@ -34,14 +34,15 @@ const standard = {
 };
 
 const recommended = {
-  plugins: tsdoc.plugins,
+  plugins: [...tsdoc.plugins, '@empathyco/x/rules'],
   parserOptions: standard.parserOptions,
   extends: [...standard.extends, ...jsdoc.extends, ...imports.extends],
   rules: {
     ...standard.rules,
     ...jsdoc.rules,
     ...tsdoc.rules,
-    ...imports.rules
+    ...imports.rules,
+    '@empathyco/x/rules/no-internal-barrel-import': 'error'
   },
   overrides: [jest.overrides, cypress.overrides],
   settings: {
