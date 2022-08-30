@@ -1,5 +1,5 @@
-module.exports = {
-  rules: {
-    'no-internal-barrel-import': require('./no-internal-barrel-import')
-  }
+import noInternalBarrelImport from './no-internal-barrel-import';
+
+export const rules = {
+  'no-internal-barrel-import': noInternalBarrelImport
 };
