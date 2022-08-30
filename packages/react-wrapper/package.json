@@ -37,7 +37,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "tslib": "~2.3.0",
-    "vue": "^2.6.0"
+    "vue": "^3.2.37"
   },
   "devDependencies": {
     "@types/jest": "~27.0.3",
